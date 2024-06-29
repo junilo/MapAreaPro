@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Google Maps Polygon Area Calculator</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div id="map"></div>
+    <div id="right-panel">
+        <h3>Hello!</h3>
+        <p>This tool lets you put markers on the map and a polygon is drawn connecting the markers and computes the area.</p>
+        <p>
+            You can <a href="javascript:exportJson()">export</a> the data into a JSON file to save your copy.
+        </p>
+        <p>
+            <input type="file" id="import-file" accept=".json" style="display: none;"/>
+            You can <a href="javascript:chooseFile()">import</a> from a JSON file to visualize on the map
+        </p>
+
+        <br>
+        <h3>Customize it?</h3>
+        <p>If you would like a customized version of this tool, please <a href="mailto:jnl.pagobo@gmail.com">contact me</a></p>
+
+        <br>
+        <h3>Feeling generous?</h3>
+        <div id="donate-button-container">
+            <div id="donate-button"></div>
+            <script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
+            <script>
+            PayPal.Donation.Button({
+            env:'production',
+            hosted_button_id:'7YJZ2A4TKLW7W',
+            image: {
+            src:'https://www.paypalobjects.com/en_AU/i/btn/btn_donate_LG.gif',
+            alt:'Donate with PayPal button',
+            title:'PayPal - The safer, easier way to pay online!',
+            }
+            }).render('#donate-button');
+            </script>
+        </div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<YOUR GOOGLE MAP APIKEY>&libraries=drawing,geometry"></script>
+    <script src="app.js"></script>
+</body>
+</html>
