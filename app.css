@@ -33,3 +33,10 @@ html, body {
 #import-file {
     display: none; /* Hide the file input */
 }
+
+#map-area {
+    font-family: 'Courier New', Courier, monospace; 
+    border: solid 1px #969696; 
+    padding: 10px;
+    background-color: #efefef;
+}

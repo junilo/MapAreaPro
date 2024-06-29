@@ -1,7 +1,6 @@
 let map;
 let markers = [];
 let polygon;
-let infoWindow;
 
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
@@ -10,8 +9,6 @@ function initMap() {
         // Enable drawing library
         gestureHandling: 'greedy'
     });
-
-    infoWindow = new google.maps.InfoWindow();
 
     // Create a Drawing Manager to draw polygons
     const drawingManager = new google.maps.drawing.DrawingManager({
@@ -43,6 +40,7 @@ function initMap() {
 function redrawPolygon() {
     // Ensure there are at least 3 markers
     if (markers.length < 3) {
+        document.getElementById('map-area').innerHTML = '';
         return;
     }
 
@@ -80,9 +78,7 @@ function redrawPolygon() {
         contentString = `Area: ${areaInSqKm.toFixed(2)} sq km`;
     }
 
-    infoWindow.setContent(contentString);
-    infoWindow.setPosition(sortedPositions[0]);
-    infoWindow.open(map);
+    document.getElementById('map-area').innerHTML = contentString;
 }
 
 function sortPositionsClockwise(positions) {
